@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CV - M Dai Hasbunalloh</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap"
+    rel="stylesheet">
+  <style>
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --accent: #0ea5e9;
+      --accent-dark: #0284c7;
+      --dark: #0f172a;
+      --dark-surface: #1e293b;
+      --text: #334155;
+      --text-light: #64748b;
+      --heading: #0f172a;
+      --border: #e2e8f0;
+      --bg-subtle: #f8fafc;
+      --white: #ffffff;
+      --sidebar-text: #cbd5e1;
+      --sidebar-muted: #94a3b8;
+    }
+
+    html {
+      font-size: 10px;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      font-size: 1.3rem;
+      line-height: 1.55;
+      color: var(--text);
+      background: #94a3b8;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    .download-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: var(--dark);
+      padding: 10px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      z-index: 999;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
+    }
+
+    .download-bar p {
+      color: var(--sidebar-muted);
+      font-size: 1.2rem;
+    }
+
+    .btn-download {
+      background: var(--accent);
+      color: white;
+      border: none;
+      padding: 8px 24px;
+      border-radius: 6px;
+      font-size: 1.3rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s;
+      font-family: inherit;
+    }
+
+    .btn-download:hover {
+      background: var(--accent-dark);
+    }
+
+    .btn-back {
+      background: transparent;
+      color: var(--sidebar-muted);
+      border: 1px solid #475569;
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-size: 1.2rem;
+      font-weight: 500;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s;
+      font-family: inherit;
+    }
+
+    .btn-back:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .cv-page {
+      width: 210mm;
+      height: 297mm;
+      margin: 60px auto 40px auto;
+      background: var(--white);
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+      display: grid;
+      grid-template-columns: 68mm 1fr;
+      grid-template-rows: 1fr;
+      align-items: stretch;
+      overflow: hidden;
+    }
+
+    .sidebar {
+      background: var(--dark);
+      color: var(--sidebar-text);
+      padding: 24px 16px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 297mm;
+      box-sizing: border-box;
+      overflow: hidden;
+    }
+
+    .sidebar .photo-wrap {
+      width: 100%;
+      margin: 0 auto;
+      aspect-ratio: 3 / 4;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 2px solid var(--accent);
+    }
+
+    .sidebar .photo-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .sidebar h3 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.8px;
+      color: var(--accent);
+      border-bottom: 1.5px solid color-mix(in srgb, var(--accent) 40%, transparent);
+      padding-bottom: 4px;
+      margin-bottom: 10px;
+    }
+
+    .contact-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+    }
+
+    .contact-list li {
+      font-size: 1rem;
+      line-height: 1.4;
+      display: flex;
+      align-items: flex-start;
+      gap: 6px;
+      word-break: break-all;
+      color: var(--sidebar-text);
+    }
+
+    .contact-list .icon {
+      flex-shrink: 0;
+      width: 14px;
+      text-align: center;
+      font-size: 1rem;
+    }
+
+    .skill-item {
+      margin-bottom: 11px;
+    }
+
+    .skill-header {
+      display: flex;
+      justify-content: space-between;
+      font-size: 1.05rem;
+      font-weight: 600;
+      margin-bottom: 3px;
+      color: var(--sidebar-text);
+    }
+
+    .skill-header span {
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 1rem;
+    }
+
+    .skill-bar {
+      height: 4px;
+      background: var(--dark-surface);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+
+    .skill-bar-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--accent), #38bdf8);
+      border-radius: 2px;
+    }
+
+    .tools-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+    }
+
+    .tool-tag {
+      font-size: 0.9rem;
+      background: var(--dark-surface);
+      color: var(--sidebar-muted);
+      padding: 2px 6px;
+      border-radius: 3px;
+      border: 1px solid #334155;
+      line-height: 1.4;
+    }
+
+    .lang-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 1.05rem;
+      margin-bottom: 10px;
+    }
+
+    .lang-item .lang-name {
+      font-weight: 500;
+      color: var(--sidebar-text);
+    }
+
+    .lang-dots {
+      display: flex;
+      gap: 4px;
+    }
+
+    .lang-dots .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #334155;
+    }
+
+    .lang-dots .dot.filled {
+      background: var(--accent);
+      box-shadow: 0 0 4px color-mix(in srgb, var(--accent) 40%, transparent);
+    }
+
+    .main-content {
+      padding: 24px 24px 20px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      justify-content: space-between;
+      height: 297mm;
+      box-sizing: border-box;
+      overflow: hidden;
+    }
+
+    .cv-header {
+      border-bottom: 2.5px solid var(--accent);
+      padding-bottom: 10px;
+    }
+
+    .cv-header h1 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 2.6rem;
+      font-weight: 800;
+      color: var(--heading);
+      line-height: 1.1;
+      margin-bottom: 3px;
+    }
+
+    .cv-header .subtitle {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--accent);
+      letter-spacing: 0.3px;
+    }
+
+    .cv-section h2 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--heading);
+      border-bottom: 1.5px solid var(--border);
+      padding-bottom: 4px;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .cv-section h2::before {
+      content: '';
+      display: inline-block;
+      width: 3px;
+      height: 14px;
+      background: var(--accent);
+      border-radius: 2px;
+      flex-shrink: 0;
+    }
+
+    .summary-text {
+      font-size: 1.15rem;
+      line-height: 1.65;
+      color: var(--text);
+      text-align: justify;
+    }
+
+    .exp-item {
+      margin-bottom: 12px;
+      position: relative;
+      padding-left: 12px;
+      border-left: 2px solid var(--border);
+    }
+
+    .exp-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .exp-item::before {
+      content: '';
+      position: absolute;
+      left: -4.5px;
+      top: 5px;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+
+    .exp-item .exp-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--heading);
+      line-height: 1.3;
+    }
+
+    .exp-item .exp-company {
+      font-size: 1.1rem;
+      color: var(--accent-dark);
+      font-weight: 600;
+      font-style: italic;
+    }
+
+    .exp-item .exp-date {
+      font-size: 1rem;
+      color: var(--text-light);
+      font-weight: 500;
+      margin-bottom: 4px;
+    }
+
+    .exp-item ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .exp-item ul li {
+      font-size: 1.1rem;
+      line-height: 1.55;
+      padding-left: 12px;
+      position: relative;
+      margin-bottom: 3px;
+      color: var(--text);
+    }
+
+    .exp-item ul li::before {
+      content: '▸';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-size: 1.1rem;
+    }
+
+    .edu-item {
+      margin-bottom: 10px;
+      padding-left: 12px;
+      border-left: 2px solid var(--border);
+      position: relative;
+    }
+
+    .edu-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .edu-item::before {
+      content: '';
+      position: absolute;
+      left: -4.5px;
+      top: 5px;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+
+    .edu-item .edu-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--heading);
+      line-height: 1.3;
+    }
+
+    .edu-item .edu-date {
+      font-size: 1rem;
+      color: var(--text-light);
+      font-weight: 500;
+    }
+
+    .edu-item .edu-desc {
+      font-size: 1.05rem;
+      color: var(--text);
+      line-height: 1.5;
+      margin-top: 1px;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px;
+    }
+
+    .service-tag {
+      font-size: 1.05rem;
+      padding: 5px 8px;
+      background: var(--bg-subtle);
+      border: 1px solid var(--border);
+      border-radius: 5px;
+      color: var(--text);
+      font-weight: 500;
+      text-align: center;
+    }
+
+    @media print {
+      @page {
+        size: A4 portrait;
+        margin: 0 !important;
+      }
+
+      * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+
+      html {
+        width: 100%;
+        height: 100%;
+        margin: 0 !important;
+        padding: 0 !important;
+      }
+
+      body {
+        width: 100%;
+        height: 100%;
+        margin: 0 !important;
+        padding: 0 !important;
+        background: white;
+        overflow: hidden;
+      }
+
+      .download-bar {
+        display: none !important;
+      }
+
+      .cv-page {
+        position: absolute;
+        top: 0;
+        left: 0;
+        margin: 0 !important;
+        padding: 0;
+        box-shadow: none;
+        width: 100%;
+        height: 100%;
+        grid-template-columns: 68mm 1fr;
+        grid-template-rows: 100%;
+        overflow: hidden;
+      }
+
+      .sidebar {
+        height: 100%;
+        margin: 0;
+      }
+
+      .main-content {
+        height: 100%;
+        margin: 0;
+      }
+    }
+
+    @media screen and (max-width: 800px) {
+      .cv-page {
+        width: 100%;
+        height: auto;
+        grid-template-columns: 1fr;
+        margin-top: 54px;
+      }
+
+      .sidebar {
+        padding: 20px 16px;
+      }
+
+      .sidebar .photo-wrap {
+        width: 100px;
+        margin: 0 auto;
+      }
+
+      .main-content {
+        padding: 20px 16px;
+      }
+
+      .cv-header h1 {
+        font-size: 2.2rem;
+      }
+
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .download-bar {
+        flex-wrap: wrap;
+        padding: 8px 12px;
+        gap: 8px;
+      }
+
+      .download-bar p {
+        display: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="download-bar">
+    <a href="index.html" class="btn-back">← Kembali</a>
+    <button class="btn-download" onclick="window.print()">📄 Download PDF</button>
+    <p>Klik tombol lalu pilih "Save as PDF"</p>
+  </div>
+
+  <div class="cv-page">
+
+    <aside class="sidebar">
+
+      <div class="photo-wrap">
+        <img src="assets/img/profile-img.jpg" alt="M Dai Hasbunalloh">
+      </div>
+
+      <div>
+        <h3>Profile</h3>
+        <ul class="contact-list">
+          <li><span class="icon">🎂</span><span>Tangerang, 18 Oktober 2000</span></li>
+          <li><span class="icon">📍</span><span>Cirebon, Jawa Barat</span></li>
+          <li><span class="icon">📞</span><span>+62 858-1197-8726</span></li>
+          <li><span class="icon">✉️</span><span>muhamaddaihasbunalloh@gmail.com</span></li>
+          <li><span class="icon">💬</span><span>t.me/iam_Days</span></li>
+          <li><span class="icon">🔗</span><span>github.com/iamDays</span></li>
+        </ul>
+      </div>
+
+      <div>
+        <h3>Keahlian</h3>
+        <div class="skill-item">
+          <div class="skill-header">Tailwind CSS <span>90%</span></div>
+          <div class="skill-bar">
+            <div class="skill-bar-fill" style="width:90%"></div>
+          </div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-header">Procurement <span>90%</span></div>
+          <div class="skill-bar">
+            <div class="skill-bar-fill" style="width:90%"></div>
+          </div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-header">JavaScript <span>85%</span></div>
+          <div class="skill-bar">
+            <div class="skill-bar-fill" style="width:85%"></div>
+          </div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-header">Data Analysis <span>85%</span></div>
+          <div class="skill-bar">
+            <div class="skill-bar-fill" style="width:85%"></div>
+          </div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-header">React <span>80%</span></div>
+          <div class="skill-bar">
+            <div class="skill-bar-fill" style="width:80%"></div>
+          </div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-header">Python <span>75%</span></div>
+          <div class="skill-bar">
+            <div class="skill-bar-fill" style="width:75%"></div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <h3>Tools</h3>
+        <div class="tools-grid">
+          <span class="tool-tag">Git</span>
+          <span class="tool-tag">GitHub</span>
+          <span class="tool-tag">SQL Server</span>
+          <span class="tool-tag">Power BI</span>
+          <span class="tool-tag">Excel & VBA</span>
+          <span class="tool-tag">Linux</span>
+          <span class="tool-tag">REST APIs</span>
+          <span class="tool-tag">VS Code</span>
+          <span class="tool-tag">Pandas</span>
+          <span class="tool-tag">NumPy</span>
+          <span class="tool-tag">Bootstrap</span>
+          <span class="tool-tag">Google API</span>
+        </div>
+      </div>
+
+      <div>
+        <h3>Bahasa</h3>
+        <div class="lang-item">
+          <span class="lang-name">Indonesia</span>
+          <div class="lang-dots">
+            <span class="dot filled"></span>
+            <span class="dot filled"></span>
+            <span class="dot filled"></span>
+            <span class="dot filled"></span>
+            <span class="dot filled"></span>
+          </div>
+        </div>
+        <div class="lang-item">
+          <span class="lang-name">Inggris</span>
+          <div class="lang-dots">
+            <span class="dot filled"></span>
+            <span class="dot filled"></span>
+            <span class="dot filled"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+          </div>
+        </div>
+        <div class="lang-item">
+          <span class="lang-name">Arab</span>
+          <div class="lang-dots">
+            <span class="dot filled"></span>
+            <span class="dot filled"></span>
+            <span class="dot filled"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+          </div>
+        </div>
+      </div>
+
+    </aside>
+
+    <main class="main-content">
+
+      <div class="cv-header">
+        <h1>M DAI HASBUNALLOH</h1>
+        <div class="subtitle">IT Professional · Procurement Specialist · Data Analyst</div>
+      </div>
+
+      <section class="cv-section">
+        <h2>Profil Profesional</h2>
+        <p class="summary-text">
+          Profesional IT, Procurement Specialist, dan Data Analyst yang dinamis dengan rekam jejak solid dalam mengelola
+          infrastruktur teknologi, mengoptimalkan proses pengadaan barang, serta mentransformasikan data bisnis menjadi
+          wawasan taktis. Memiliki keahlian analitis yang kuat untuk mendorong efisiensi biaya dan otomatisasi kerja
+          operasional. Berpengalaman menggunakan React, Tailwind CSS, Python, SQL, dan Power BI.
+        </p>
+      </section>
+
+      <section class="cv-section">
+        <h2>Pengalaman Kerja</h2>
+
+        <div class="exp-item">
+          <div class="exp-title">Data Analyst</div>
+          <div class="exp-company">PT. Sindang Pratama Jaya — Cirebon</div>
+          <div class="exp-date">2023 – Sekarang</div>
+          <ul>
+            <li>Membangun dashboard analitik interaktif (Sales Dashboard & Vendor Management System) dengan React,
+              Tailwind CSS, SQL, dan Power BI untuk mendukung keputusan manajemen.</li>
+            <li>Merancang otomatisasi pengolahan berkas menggunakan Python, Excel VBA, dan Google Sheets API,
+              meningkatkan efisiensi waktu pemrosesan data hingga <strong>30%</strong>.</li>
+          </ul>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-title">IT Specialist & Support</div>
+          <div class="exp-company">PT. Sindang Pratama Jaya — Cirebon</div>
+          <div class="exp-date">2023 – Sekarang</div>
+          <ul>
+            <li>Bertanggung jawab atas pemeliharaan dan keamanan infrastruktur IT korporat, meminimalisir downtime
+              operasional hingga di bawah <strong>1%</strong>.</li>
+            <li>Memberikan solusi teknis responsif untuk <strong>50+</strong> pengguna operasional harian (hardware,
+              software, konektivitas).</li>
+          </ul>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-title">Procurement Specialist</div>
+          <div class="exp-company">PT. Sindang Pratama Jaya — Cirebon</div>
+          <div class="exp-date">2023 – Sekarang</div>
+          <ul>
+            <li>Mengelola seluruh siklus pengadaan barang dari negosiasi vendor hingga monitoring inventaris logistik.
+            </li>
+            <li>Negosiasi kontrak dengan <strong>20+</strong> supplier, menekan biaya pengadaan sebesar
+              <strong>12%</strong> dengan mempertahankan kualitas.
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="cv-section">
+        <h2>Pendidikan</h2>
+
+        <div class="edu-item">
+          <div class="edu-title">Pondok Pesantren Salafy</div>
+          <div class="edu-date">2012 – 2023 · 11 tahun</div>
+          <div class="edu-desc">Studi literatur klasik, pengabdian sosial, serta pendalaman tata bahasa Arab klasikal.
+            Melatih kepemimpinan, negosiasi, dan kerangka berpikir logis.</div>
+        </div>
+
+        <div class="edu-item">
+          <div class="edu-title">Madrasah Aliyah — Jurusan MIPA</div>
+          <div class="edu-date">2017 – 2020</div>
+          <div class="edu-desc">Fokus studi Matematika & IPA. Kurikulum formal eksakta diimbangi disiplin harian
+            pesantren.</div>
+        </div>
+
+        <div class="edu-item">
+          <div class="edu-title">Madrasah Tsanawiyah</div>
+          <div class="edu-date">2012 – 2015</div>
+          <div class="edu-desc">Pendidikan menengah pertama. Dasar pemikiran analitis dan kedisiplinan belajar mandiri.
+          </div>
+        </div>
+      </section>
+
+      <section class="cv-section">
+        <h2>Layanan Profesional</h2>
+        <div class="services-grid">
+          <div class="service-tag">🖥️ IT Support & Infrastructure</div>
+          <div class="service-tag">📦 Procurement Management</div>
+          <div class="service-tag">📊 Data Analysis & Reporting</div>
+          <div class="service-tag">🌐 Web Development</div>
+          <div class="service-tag">💡 IT Consulting</div>
+          <div class="service-tag">⚡ Automation (Python & API)</div>
+        </div>
+      </section>
+
+    </main>
+
+  </div>
+
+</body>
+
+</html>
